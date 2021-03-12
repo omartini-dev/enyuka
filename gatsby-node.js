@@ -1,240 +1,240 @@
-// const path = require(`path`);
+const path = require(`path`);
 
-// const { makePropertyPagePath, makePropertyRedirectPath, makeSlug } = require(`./src/components/utils/urlGenerator`);
+const { makePropertyPagePath, makePropertyRedirectPath, makeSlug } = require(`./src/components/utils/urlGenerator`);
 
-// const {
-//   sourceAllNodes,
-//   sourceNodeChanges,
-//   createSchemaCustomization,
-//   compileNodeQueries,
-//   readOrGenerateDefaultFragments,
-//   buildNodeDefinitions,
-//   loadSchema,
-//   createDefaultQueryExecutor,
-// } = require(`gatsby-graphql-source-toolkit`)
-// const { print } = require(`gatsby/graphql`)
+const {
+  sourceAllNodes,
+  sourceNodeChanges,
+  createSchemaCustomization,
+  compileNodeQueries,
+  readOrGenerateDefaultFragments,
+  buildNodeDefinitions,
+  loadSchema,
+  createDefaultQueryExecutor,
+} = require(`gatsby-graphql-source-toolkit`)
+const { print } = require(`gatsby/graphql`)
 
-// const fs = require(`fs-extra`)
+const fs = require(`fs-extra`)
 
-// const PROPERTY_TO_LET_NODE_TYPE = `PropertyToLet`
-// const PROPERTY_FOR_SALE_NODE_TYPE = `PropertyForSale`
+const PROPERTY_TO_LET_NODE_TYPE = `PropertyToLet`
+const PROPERTY_FOR_SALE_NODE_TYPE = `PropertyForSale`
 
-// const debugDir = __dirname + `/.cache/d9-compiled-queries`
-// const fragmentsDir = __dirname + `/d9-fragments`
+const debugDir = __dirname + `/.cache/d9-compiled-queries`
+const fragmentsDir = __dirname + `/d9-fragments`
 
-// //Sourcing deltas
-// const { createApolloFetch } = require('apollo-fetch');
+//Sourcing deltas
+const { createApolloFetch } = require('apollo-fetch');
 
-// async function writeCompiledQueries(nodeDocs) {
-//   await fs.ensureDir(debugDir)
-//   for (const [remoteTypeName, document] of nodeDocs) {
-//     await fs.writeFile(debugDir + `/${remoteTypeName}.graphql`, print(document))
-//   }
-// }
+async function writeCompiledQueries(nodeDocs) {
+  await fs.ensureDir(debugDir)
+  for (const [remoteTypeName, document] of nodeDocs) {
+    await fs.writeFile(debugDir + `/${remoteTypeName}.graphql`, print(document))
+  }
+}
 
-// async function createSourcingConfig(gatsbyApi) {
-//   // Step1. Setup remote schema:
-//   if (!process.env.GATSBY_GRAPHQL_D9) {
-//     // throw new Error("Missing process.env.GATSBY_GRAPHQL_D9")
-//   }
-//   const execute = createDefaultQueryExecutor(process.env.GATSBY_GRAPHQL_D9)
-//   const schema = await loadSchema(execute)
+async function createSourcingConfig(gatsbyApi) {
+  // Step1. Setup remote schema:
+  if (!process.env.GATSBY_GRAPHQL_D9) {
+    // throw new Error("Missing process.env.GATSBY_GRAPHQL_D9")
+  }
+  const execute = createDefaultQueryExecutor(process.env.GATSBY_GRAPHQL_D9)
+  const schema = await loadSchema(execute)
 
-//   // const nodeInterface = schema.getType(`GatsbyQueryType`)
-//   // const possibleTypes = schema.getPossibleTypes(nodeInterface)
+  // const nodeInterface = schema.getType(`GatsbyQueryType`)
+  // const possibleTypes = schema.getPossibleTypes(nodeInterface)
 
-//   const gatsbyNodeTypes = [
-//     {
-//       remoteTypeName: PROPERTY_TO_LET_NODE_TYPE,
-//       queries: `
-//         query LIST_${PROPERTY_TO_LET_NODE_TYPE}_PAGE1 {
-//           queryPropertyToLet(input: { property_gmaven_key: "" page: 0 }) {
-//             ..._${PROPERTY_TO_LET_NODE_TYPE}Id_
-//           }
-//         }
-//         query LIST_${PROPERTY_TO_LET_NODE_TYPE}_PAGE2 {
-//           queryPropertyToLet(input: { property_gmaven_key: "" page: 1 }) {
-//             ..._${PROPERTY_TO_LET_NODE_TYPE}Id_
-//           }
-//         }
-//         query NODE_${PROPERTY_TO_LET_NODE_TYPE}($gmaven_mapped_key: ID!) {
-//           queryPropertyToLet(input: { property_gmaven_key: $gmaven_mapped_key }){
-//             ..._${PROPERTY_TO_LET_NODE_TYPE}Id_
-//           }
-//         }
-//         fragment _${PROPERTY_TO_LET_NODE_TYPE}Id_ on ${PROPERTY_TO_LET_NODE_TYPE} { 
-//           objectID
-//           gmaven_mapped_key
-//         }
-//       `
-//     },
-//     {
-//       remoteTypeName: PROPERTY_FOR_SALE_NODE_TYPE,
-//       queries: `
-//         query LIST_${PROPERTY_FOR_SALE_NODE_TYPE}_PAGE1 {
-//           queryPropertyForSale(input: { gmaven_mapped_key: "" page: 0 }) {
-//             ..._${PROPERTY_FOR_SALE_NODE_TYPE}Id_
-//           }
-//         }
-//         query LIST_${PROPERTY_FOR_SALE_NODE_TYPE}_PAGE2 {
-//           queryPropertyForSale(input: { gmaven_mapped_key: "" page: 1 }) {
-//             ..._${PROPERTY_FOR_SALE_NODE_TYPE}Id_
-//           }
-//         }
-//         query NODE_${PROPERTY_FOR_SALE_NODE_TYPE}($gmaven_mapped_key: ID!) {
-//           queryPropertyForSale(input: { gmaven_mapped_key: $gmaven_mapped_key }){
-//             ..._${PROPERTY_FOR_SALE_NODE_TYPE}Id_
-//           }
-//         }
-//         fragment _${PROPERTY_FOR_SALE_NODE_TYPE}Id_ on ${PROPERTY_FOR_SALE_NODE_TYPE} {
-//           gmaven_mapped_key
-//         }
-//       `
-//     }
-//   ]
+  const gatsbyNodeTypes = [
+    {
+      remoteTypeName: PROPERTY_TO_LET_NODE_TYPE,
+      queries: `
+        query LIST_${PROPERTY_TO_LET_NODE_TYPE}_PAGE1 {
+          queryPropertyToLet(input: { property_gmaven_key: "" page: 0 }) {
+            ..._${PROPERTY_TO_LET_NODE_TYPE}Id_
+          }
+        }
+        query LIST_${PROPERTY_TO_LET_NODE_TYPE}_PAGE2 {
+          queryPropertyToLet(input: { property_gmaven_key: "" page: 1 }) {
+            ..._${PROPERTY_TO_LET_NODE_TYPE}Id_
+          }
+        }
+        query NODE_${PROPERTY_TO_LET_NODE_TYPE}($gmaven_mapped_key: ID!) {
+          queryPropertyToLet(input: { property_gmaven_key: $gmaven_mapped_key }){
+            ..._${PROPERTY_TO_LET_NODE_TYPE}Id_
+          }
+        }
+        fragment _${PROPERTY_TO_LET_NODE_TYPE}Id_ on ${PROPERTY_TO_LET_NODE_TYPE} { 
+          objectID
+          gmaven_mapped_key
+        }
+      `
+    },
+    {
+      remoteTypeName: PROPERTY_FOR_SALE_NODE_TYPE,
+      queries: `
+        query LIST_${PROPERTY_FOR_SALE_NODE_TYPE}_PAGE1 {
+          queryPropertyForSale(input: { gmaven_mapped_key: "" page: 0 }) {
+            ..._${PROPERTY_FOR_SALE_NODE_TYPE}Id_
+          }
+        }
+        query LIST_${PROPERTY_FOR_SALE_NODE_TYPE}_PAGE2 {
+          queryPropertyForSale(input: { gmaven_mapped_key: "" page: 1 }) {
+            ..._${PROPERTY_FOR_SALE_NODE_TYPE}Id_
+          }
+        }
+        query NODE_${PROPERTY_FOR_SALE_NODE_TYPE}($gmaven_mapped_key: ID!) {
+          queryPropertyForSale(input: { gmaven_mapped_key: $gmaven_mapped_key }){
+            ..._${PROPERTY_FOR_SALE_NODE_TYPE}Id_
+          }
+        }
+        fragment _${PROPERTY_FOR_SALE_NODE_TYPE}Id_ on ${PROPERTY_FOR_SALE_NODE_TYPE} {
+          gmaven_mapped_key
+        }
+      `
+    }
+  ]
 
-//   // Step3. Provide (or generate) fragments with fields to be fetched
-//   fs.ensureDir(fragmentsDir)
-//   const fragments = await readOrGenerateDefaultFragments(
-//     fragmentsDir,
-//     { schema, gatsbyNodeTypes }
-//   )
+  // Step3. Provide (or generate) fragments with fields to be fetched
+  fs.ensureDir(fragmentsDir)
+  const fragments = await readOrGenerateDefaultFragments(
+    fragmentsDir,
+    { schema, gatsbyNodeTypes }
+  )
 
-//   //const fragments = readOrGenerateDefaultFragments({ schema, gatsbyNodeTypes })
+  //const fragments = readOrGenerateDefaultFragments({ schema, gatsbyNodeTypes })
 
-//   // Step4. Compile sourcing queries
-//   const documents = compileNodeQueries({
-//     schema,
-//     gatsbyNodeTypes,
-//     customFragments: fragments,
-//   })
+  // Step4. Compile sourcing queries
+  const documents = compileNodeQueries({
+    schema,
+    gatsbyNodeTypes,
+    customFragments: fragments,
+  })
 
-//   // Write compiled queries for debugging
-//   await writeCompiledQueries(documents)
+  // Write compiled queries for debugging
+  await writeCompiledQueries(documents)
 
-//   return {
-//     gatsbyApi,
-//     schema,
-//     execute,
-//     gatsbyTypePrefix: `D9_`,
-//     gatsbyNodeDefs: buildNodeDefinitions({ gatsbyNodeTypes, documents }),
-//   }
-// }
+  return {
+    gatsbyApi,
+    schema,
+    execute,
+    gatsbyTypePrefix: `D9_`,
+    gatsbyNodeDefs: buildNodeDefinitions({ gatsbyNodeTypes, documents }),
+  }
+}
 
-// async function fetchNodeChanges(lastBuildTime) {
+async function fetchNodeChanges(lastBuildTime) {
 
-//   console.log("Cached build time:", Math.round((lastBuildTime / 1000) - 7200))
+  console.log("Cached build time:", Math.round((lastBuildTime / 1000) - 7200))
 
-//   console.log("Starting to fetch CRE data from D9 API");
+  console.log("Starting to fetch CRE data from D9 API");
 
-//   const fetch = createApolloFetch({
-//     uri: process.env.GATSBY_GRAPHQL_D9,
-//   });
+  const fetch = createApolloFetch({
+    uri: process.env.GATSBY_GRAPHQL_D9,
+  });
 
-//   const updateArray = [];
+  const updateArray = [];
 
-//   return fetch({
-//     query: `
-//       query GetUpdated ($time: Int!){ 
-//         to_let_updated: queryToLetUpdated(input: {last_build: $time}) { 
-//           objectID
-//           gmaven_mapped_key 
-//         } 
-//         to_let_deleted: queryToLetDeleted {
-//           objectID
-//           gmaven_mapped_key: objectID
-//         }
+  return fetch({
+    query: `
+      query GetUpdated ($time: Int!){ 
+        to_let_updated: queryToLetUpdated(input: {last_build: $time}) { 
+          objectID
+          gmaven_mapped_key 
+        } 
+        to_let_deleted: queryToLetDeleted {
+          objectID
+          gmaven_mapped_key: objectID
+        }
 
-//         for_sale_updated: queryForSaleUpdated(input: {last_build: $time}) { 
-//           objectID
-//           gmaven_mapped_key 
-//         } 
+        for_sale_updated: queryForSaleUpdated(input: {last_build: $time}) { 
+          objectID
+          gmaven_mapped_key 
+        } 
         
-//         for_sale_deleted: queryForSaleDeleted {
-//           objectID
-//           gmaven_mapped_key: objectID
-//         }
-//       }
-//     `,
-//     variables: { time: Math.round((lastBuildTime / 1000) - 7200) },
-//   }).then(res => {
+        for_sale_deleted: queryForSaleDeleted {
+          objectID
+          gmaven_mapped_key: objectID
+        }
+      }
+    `,
+    variables: { time: Math.round((lastBuildTime / 1000) - 7200) },
+  }).then(res => {
 
-//     //To let updates
-//     if (res.data.to_let_updated && res.data.to_let_updated.length > 0) {
-//       res.data.to_let_updated.map((item, i) => {
-//         updateArray.push({
-//           eventName: "UPDATE",
-//           remoteTypeName: PROPERTY_TO_LET_NODE_TYPE,
-//           remoteId: { objectID: item.objectID, gmaven_mapped_key: item.gmaven_mapped_key }
-//         })
-//       })
+    //To let updates
+    if (res.data.to_let_updated && res.data.to_let_updated.length > 0) {
+      res.data.to_let_updated.map((item, i) => {
+        updateArray.push({
+          eventName: "UPDATE",
+          remoteTypeName: PROPERTY_TO_LET_NODE_TYPE,
+          remoteId: { objectID: item.objectID, gmaven_mapped_key: item.gmaven_mapped_key }
+        })
+      })
 
-//       console.info("Updated to let nodes", res.data.to_let_updated.length);
-//     }
+      console.info("Updated to let nodes", res.data.to_let_updated.length);
+    }
 
-//     //To let deleted
-//     if (res.data.to_let_deleted && res.data.to_let_deleted.length > 0) {
-//       res.data.to_let_deleted.map((item, i) => {
-//         updateArray.push({
-//           eventName: "DELETE",
-//           remoteTypeName: PROPERTY_TO_LET_NODE_TYPE,
-//           remoteId: { objectID: item.objectID, gmaven_mapped_key: item.objectID }
-//         })
-//       })
+    //To let deleted
+    if (res.data.to_let_deleted && res.data.to_let_deleted.length > 0) {
+      res.data.to_let_deleted.map((item, i) => {
+        updateArray.push({
+          eventName: "DELETE",
+          remoteTypeName: PROPERTY_TO_LET_NODE_TYPE,
+          remoteId: { objectID: item.objectID, gmaven_mapped_key: item.objectID }
+        })
+      })
 
-//       console.info("Deleted to let nodes", res.data.to_let_deleted.length);
-//     }
+      console.info("Deleted to let nodes", res.data.to_let_deleted.length);
+    }
 
-//     //For sale updates
-//     if (res.data.for_sale_updated && res.data.for_sale_updated.length > 0) {
-//       res.data.for_sale_updated.map((item, i) => {
-//         updateArray.push({
-//           eventName: "UPDATE",
-//           remoteTypeName: PROPERTY_FOR_SALE_NODE_TYPE,
-//           remoteId: { gmaven_mapped_key: item.gmaven_mapped_key }
-//         })
-//       })
+    //For sale updates
+    if (res.data.for_sale_updated && res.data.for_sale_updated.length > 0) {
+      res.data.for_sale_updated.map((item, i) => {
+        updateArray.push({
+          eventName: "UPDATE",
+          remoteTypeName: PROPERTY_FOR_SALE_NODE_TYPE,
+          remoteId: { gmaven_mapped_key: item.gmaven_mapped_key }
+        })
+      })
 
-//       console.info("Updated for sale nodes", res.data.for_sale_updated.length);
-//     }
+      console.info("Updated for sale nodes", res.data.for_sale_updated.length);
+    }
 
-//     //For sale deleted
-//     if (res.data.for_sale_deleted && res.data.for_sale_deleted.length > 0) {
-//       res.data.for_sale_deleted.map((item, i) => {
-//         updateArray.push({
-//           eventName: "DELETE",
-//           remoteTypeName: PROPERTY_FOR_SALE_NODE_TYPE,
-//           remoteId: { gmaven_mapped_key: item.objectID }
-//         })
-//       })
+    //For sale deleted
+    if (res.data.for_sale_deleted && res.data.for_sale_deleted.length > 0) {
+      res.data.for_sale_deleted.map((item, i) => {
+        updateArray.push({
+          eventName: "DELETE",
+          remoteTypeName: PROPERTY_FOR_SALE_NODE_TYPE,
+          remoteId: { gmaven_mapped_key: item.objectID }
+        })
+      })
 
-//       console.info("Deleted for sale nodes", res.data.for_sale_deleted.length);
-//     }
+      console.info("Deleted for sale nodes", res.data.for_sale_deleted.length);
+    }
 
-//     return updateArray;
+    return updateArray;
 
-//   });
+  });
 
-// }
+}
 
-// exports.sourceNodes = async (gatsbyApi, pluginOptions) => {
+exports.sourceNodes = async (gatsbyApi, pluginOptions) => {
 
-//   const lastBuildTime = await gatsbyApi.cache.get(`LAST_BUILD_TIME`)
+  const lastBuildTime = await gatsbyApi.cache.get(`LAST_BUILD_TIME`)
 
-//   const config = await createSourcingConfig(gatsbyApi)
-//   await createSchemaCustomization(config)
+  const config = await createSourcingConfig(gatsbyApi)
+  await createSchemaCustomization(config)
 
-//   if (lastBuildTime) {
-//     // Source delta changes
-//     const nodeEvents = await fetchNodeChanges(lastBuildTime)
+  if (lastBuildTime) {
+    // Source delta changes
+    const nodeEvents = await fetchNodeChanges(lastBuildTime)
 
-//     await sourceNodeChanges(config, { nodeEvents })
-//   } else {
-//     // Otherwise source everything from scratch as usual
-//     await sourceAllNodes(config)
-//   }
-//   await gatsbyApi.cache.set(`LAST_BUILD_TIME`, Date.now())
-// }
+    await sourceNodeChanges(config, { nodeEvents })
+  } else {
+    // Otherwise source everything from scratch as usual
+    await sourceAllNodes(config)
+  }
+  await gatsbyApi.cache.set(`LAST_BUILD_TIME`, Date.now())
+}
 
 // exports.createPages = async ({ graphql, actions, reporter }) => {
 
@@ -493,4 +493,4 @@
 
 // }
 
-// exports.onPreInit = () => console.log("Loaded cre-plugin");
+exports.onPreInit = () => console.log("Loaded cre-plugin");
