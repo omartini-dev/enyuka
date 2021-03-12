@@ -1,0 +1,140 @@
+fragment PropertyForSale on PropertyForSale {
+  objectID
+  gmaven_mapped_key
+  property_name
+  street_address
+  suburb
+  city
+  province
+  country
+  cluster
+  latitude
+  longitude
+  best_image
+  _typename
+  property_type
+  unit_id
+  min_gla
+  max_gla
+  total_property_gla
+  total_erf_extent
+  property_category
+  secondary_category
+  status
+  status_date
+  web_ref
+  property_featured
+  available_type
+  available_date
+  gross_price
+  video
+  virtual_tour
+  complex_space
+  general_features {
+    ... on GeneralFeatures {
+      property_naming_rights
+      unit_naming_rights
+      security_guards
+      security_hours
+      security_responsibility
+      has_security
+      security_infrustructure
+      green_certification
+      green_certification_rating
+      has_generators
+      solar
+      backup_water_supply
+      canteen
+      property_kitchenette
+      unit_kitchenette
+      gym
+      boardroom
+      showers
+      reception
+      meeting_rooms
+    }
+  }
+  office_features {
+    ... on OfficeFeatures {
+      has_aircon
+      no_floors
+      lift_count
+      lift_cores
+      building_shape
+      has_internet
+      internet_provider
+    }
+  }
+  industrial_features {
+    ... on IndustrialFeatures {
+      power_phase
+      power_output
+      power_unit
+      has_yard
+      height_to_eaves
+      lux_level
+      lux_description
+      gantry_cranes
+      floor_load_capacity
+    }
+  }
+  parking {
+    ... on Parking {
+      property_parking
+      unit_parking
+      property_parking_ratio
+      property_parking_open
+      property_parking_basement
+      property_parking_covered
+      property_parking_shade
+      property_parking_tandem
+      unit_parking_ratio
+      unit_parking_open
+      unit_parking_basement
+      unit_parking_covered
+      unit_parking_shade
+      unit_parking_tandem
+    }
+  }
+  marketing {
+    ... on MarketingType {
+      property_marketing_heading
+      property_marketing_description
+      unit_marketing_heading
+      unit_marketing_description
+    }
+  }
+  space_breakdown {
+    ... on ComplexSpaceType {
+      space_id
+      space_category
+      space_gla
+      space_asking_gross_monthly_rental_m2
+      space_asking_net_monthly_rental_m2
+    }
+  }
+  property_images {
+    ... on Image {
+      image_id
+      image_path_url
+      type
+    }
+  }
+  property_responsibility {
+    ... on Responsibility {
+      gmaven_contact_key
+      name
+      cell_number
+      telephone_number
+      email
+      job_title
+      role
+      linkedin_profile
+      facebook_profile
+      twitter_profile
+      image
+    }
+  }
+  update_date
+  update_datetime
+}

@@ -1,0 +1,189 @@
+fragment PropertyToLet on PropertyToLet {
+  objectID
+  gmaven_mapped_key
+  property_gmaven_key
+  property_name
+  street_address
+  suburb
+  city
+  province
+  country
+  cluster
+  latitude
+  longitude
+  total_property_gla
+  total_erf_extent
+  property_category
+  property_sub_category
+  unit_category
+  secondary_category
+  property_featured
+  best_image
+  status
+  status_date
+  web_ref
+  gross_price
+  net_price
+  available_type
+  available_date
+  unit_id
+  complex_space
+  min_gla
+  max_gla
+  sub_divisible
+  this_unit_can_be_leased_by_itself
+  combinable
+  property_video
+  video
+  property_virtual_tour
+  virtual_tour
+  general_features {
+    ... on GeneralFeatures {
+      property_naming_rights
+      unit_naming_rights
+      security_guards
+      security_hours
+      security_responsibility
+      has_security
+      security_infrustructure
+      green_certification
+      green_certification_rating
+      has_generators
+      solar
+      backup_water_supply
+      canteen
+      property_kitchenette
+      unit_kitchenette
+      gym
+      boardroom
+      showers
+      reception
+      meeting_rooms
+    }
+  }
+  office_features {
+    ... on OfficeFeatures {
+      has_aircon
+      no_floors
+      lift_count
+      lift_cores
+      building_shape
+      has_internet
+      internet_provider
+    }
+  }
+  industrial_features {
+    ... on IndustrialFeatures {
+      power_phase
+      power_output
+      power_unit
+      has_yard
+      height_to_eaves
+      lux_level
+      lux_description
+      gantry_cranes
+      floor_load_capacity
+    }
+  }
+  parking {
+    ... on Parking {
+      property_parking
+      unit_parking
+      property_parking_ratio
+      property_parking_open
+      property_parking_basement
+      property_parking_covered
+      property_parking_shade
+      property_parking_tandem
+      unit_parking_ratio
+      unit_parking_open
+      unit_parking_basement
+      unit_parking_covered
+      unit_parking_shade
+      unit_parking_tandem
+    }
+  }
+  marketing {
+    ... on MarketingType {
+      property_marketing_heading
+      property_marketing_description
+      unit_marketing_heading
+      unit_marketing_description
+    }
+  }
+  space_breakdown {
+    ... on ComplexSpaceType {
+      space_id
+      space_category
+      space_gla
+      space_asking_gross_monthly_rental_m2
+      space_asking_net_monthly_rental_m2
+    }
+  }
+  property_tia {
+    ... on TiaType {
+      tia_value
+      tia_type
+      tia_value_based_on
+      tia_period
+      tia_period_not_specified
+    }
+  }
+  tia {
+    ... on TiaType {
+      tia_value
+      tia_type
+      tia_value_based_on
+      tia_period
+      tia_period_not_specified
+    }
+  }
+  property_images {
+    ... on Image {
+      image_id
+      image_path_url
+      type
+    }
+  }
+  unit_images {
+    ... on Image {
+      image_id
+      image_path_url
+      type
+    }
+  }
+  property_responsibility {
+    ... on Responsibility {
+      gmaven_contact_key
+      name
+      cell_number
+      telephone_number
+      email
+      job_title
+      role
+      linkedin_profile
+      facebook_profile
+      twitter_profile
+      image
+    }
+  }
+  unit_responsibility {
+    ... on Responsibility {
+      gmaven_contact_key
+      name
+      cell_number
+      telephone_number
+      email
+      job_title
+      role
+      linkedin_profile
+      facebook_profile
+      twitter_profile
+      image
+    }
+  }
+  property_update_date
+  property_update_datetime
+  unit_update_date
+  unit_update_datetime
+}

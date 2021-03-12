@@ -1,0 +1,455 @@
+.enyuka_portfolio {
+    position: relative;
+    /*height: 800px;*/
+    /*box-shadow: 0 0 3px #000;*/
+    background-color: #cfe6e9;
+    background-image: url("../images/backing-mountain.png");
+}
+
+.enyuka_portfolio > img {
+    display: block;
+    background: #fff;
+width: 100%;
+    height: 1213px;
+}
+
+.enyuka_portfolio .banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 1400px;
+    /*padding: 0 30px;*/
+    /*box-shadow: 0 0 3px #000;*/
+    margin: 260px auto 0;
+    /*background: rgba(0, 0, 0, .1);*/
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.enyuka_portfolio .banner .l_bar {
+    max-width: 440px;
+    width: 33%;
+    /*height: 500px;*/
+
+}
+
+.enyuka_portfolio .banner .r_bar {
+    /*border: 1px solid red;*/
+    width: 65%;
+    margin: 0 0 0 20px;
+}
+.enyuka_portfolio .banner .r_bar img{
+width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
+}
+.enyuka_portfolio .banner h4 {
+    /*box-shadow: 0 0 3px #000;*/
+    font-size: 50px;
+    margin: 0 0 10px;
+
+}
+
+.enyuka_portfolio .banner p {
+    /*box-shadow: 0 0 3px #000;*/
+    font-size: 21px;
+
+}
+
+.enyuka_portfolio .banner p span {
+    /*box-shadow: 0 0 3px #000;*/
+    font-size: 24px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.enyuka_portfolio .banner button {
+    /*box-shadow: 0 0 3px #000;*/
+    background-color: #1d5778;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    padding: 10px 25px;
+    border: none;
+    margin: 55px 0 0 0;
+    font-size: 12px
+}
+
+.total_info_banner {
+    display: flex;
+    max-width: 1440px;
+    padding: 0 30px;
+    margin: 20px auto 100px;
+    justify-content: space-between;
+}
+
+.total_info_banner .total_item:last-child {
+    margin-right: 0
+}
+
+.total_info_banner .total_item {
+    /*box-shadow: 0 0 3px #000;*/
+    width: 32%;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.total_info_banner .total_item h3 {
+    padding: 0 0 10px 0;
+    margin: 0 0 15px 0;
+    font-size: 30px;
+    text-align: center;
+    color: #285878;
+}
+
+.total_info_banner .total_item h3 span {
+    font-size: 21px;
+    display: inline-block;
+    color: #285878;
+}
+
+.total_info_banner .total_item h3:after {
+    content: "";
+    display: block;
+    height: 1px;
+    /*box-shadow: 0 0 3px #000;*/
+    width: 30%;
+    margin: 10px auto 0;
+    background-color: #b0d5db;
+}
+
+.total_info_banner .total_item p {
+    font-size: 14px;
+
+}
+
+@media (max-width: 1600px) {
+    .enyuka_portfolio .banner {
+        max-width: 1400px;
+        padding: 0 30px;
+    }
+
+    .enyuka_portfolio > img {
+        height: 1200px;
+    }
+
+    .top-features {
+        max-width: 100%;
+    }
+
+    .top-features > .banner {
+        padding: 0 30px;
+    }
+
+    .why_us {
+
+        max-width: 1150px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .enyuka_portfolio > img {
+        height: 1100px;
+    }
+
+    .enyuka_portfolio .banner .r_bar {
+        width: 60%;
+    }
+
+    .portfolio-items .p_item .text-bar, .features_slider .text-bar {
+        padding: 25px 30px 25px 30px;
+    }
+
+    .why_us {
+        max-width: 955px;
+    }
+
+    .why_us > .banner > div {
+        margin: 0 0 0 50px;
+    }
+
+    .why_us_container {
+        margin: 70px 0;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .enyuka_portfolio .banner .r_bar {
+        width: 55%;
+    }
+
+    .why_us {
+        max-width: 730px;
+    }
+
+    .enyuka_portfolio > img {
+        height: 860px;
+    }
+
+    .menu-icon > span:before, .menu-icon > span:after {
+        height: 5px;
+    }
+
+    .enyuka_portfolio .banner p span,
+    .enyuka_portfolio .banner p {
+        font-size: 19px;
+    }
+
+    .menu-icon > span {
+        height: 5px;
+        margin: 0 0 0 0;
+    }
+
+    .container {
+        margin: 33px 30px 0 0;
+    }
+
+    .enyuka_portfolio .banner {
+        max-width: 100%;
+    }
+
+    .enyuka_portfolio .banner button {
+        margin: 30px 0 0 0;
+    }
+    .portfolio-items .p_item .text-bar p, .features_slider .text-bar p,
+    .portfolio-items .p_item .text-bar a, .features_slider .text-bar a {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .portfolio-items .p_item .text-bar, .features_slider .text-bar {
+        padding: 20px;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .enyuka_portfolio > img {
+        height: 720px;
+    }
+
+    .enyuka_portfolio .banner .r_bar {
+        width: 50%;
+    }
+
+    .why_us > .banner {
+        margin: 0;
+    }
+
+    .why_us > .banner > div {
+        margin: 0 0 0 20px;
+    }
+
+    .why_us > .banner h3 {
+        font-size: 50px;
+    }
+
+    .why_us > .banner p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 769px) {
+    .enyuka_portfolio .banner > div {
+        max-width: 100%
+    }
+
+    .enyuka_portfolio .banner .l_bar {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .enyuka_portfolio .banner .r_bar {
+        max-width: 100%;
+        width: 100%;
+        margin: auto;
+    }
+
+    .enyuka_portfolio .banner button {
+        margin: 20px 0 0 0;
+    }
+
+    .enyuka_portfolio .banner .l_bar {
+    }
+
+    .enyuka_portfolio .banner {
+        flex-direction: column;
+    }
+
+    .enyuka_portfolio > img {
+        height: 1000px;
+    }
+
+    .total_info_banner {
+        margin: 20px 0 50px;
+    }
+
+    .portfolio-items .p_item .text-bar, .features_slider .text-bar {
+        padding: 20px 15px 20px 15px;
+        font-size: 14px;
+    }
+
+    .portfolio-items .p_item .text-bar h5, .features_slider .text-bar h5 {
+        margin: 0 0 20px 0;
+    }
+
+    .portfolio-items .p_item .text-bar p, .features_slider .text-bar p {
+        width: 100%;
+    }
+
+    .portfolio-items .p_item .text-bar a, .features_slider .text-bar a {
+        margin: 10px 0 0 auto;
+    }
+
+    .top-features > .banner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features_slider {
+        width: 100%;
+        margin: 0 0 30px 0;
+        height: 450px;
+    }
+
+    .features_slider img {
+        height: 300px;
+    }
+
+    .why_us > .banner {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .why_us > .banner img {
+        width: 100%;
+        height: 450px;
+    }
+
+    .why_us {
+        padding: 0;
+        height: auto;
+        margin: 50px 30px;
+    }
+
+    .why_us_container {
+        margin: 0;
+    }
+
+    .why_us > .banner > div {
+        margin: 20px 0 0 0;
+        padding: 30px;
+
+    }
+
+    .why_us > .banner p {
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    .why_us > .banner h3 {
+        font-size: 50px;
+        margin: 0 0 20px 0;
+    }
+
+    .enyuka_portfolio .banner p {
+        font-size: 18px;
+    }
+
+    .enyuka_portfolio .banner p span {
+        font-size: 19px;
+    }
+
+    .total_info_banner .total_item h3 {
+        margin: 0 0 10px 0;
+    }
+
+    .total_info_banner .total_item h3 {
+        font-size: 19px;
+    }
+
+    .total_info_banner .total_item p {
+        font-size: 12px;
+    }
+
+    .total_info_banner {
+        margin: 20px 0 30px;
+    }
+
+    .total_info_banner .total_item {
+        margin-right: 10px;
+    }
+    .enyuka_portfolio .banner {
+
+        margin: 150px auto 0;}
+}
+
+@media (max-width: 480px) {
+    .enyuka_portfolio .banner p {
+        font-size: 14px;
+    }
+
+    .enyuka_portfolio .banner p span {
+        font-size: 15px;
+    }
+
+    .why_us > .banner img {
+        height: 300px;
+    }
+
+    .why_us > .banner h3 {
+        font-size: 40px;
+    }
+
+    .why_us > .banner p {
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    .total_info_banner .total_item h3 span {
+        font-size: 16px;
+    }
+
+    .total_info_banner .total_item h3 {
+        font-size: 14px;
+    }
+
+    .enyuka_portfolio > img {
+        height: 800px;
+    }
+
+    .portfolio-items .p_item .text-bar h5, .features_slider .text-bar h5 {
+        font-size: 14px;
+    }
+
+    footer .foot-wrap {
+        flex-direction: column;
+    }
+
+    .foot-wrap .info-bar {
+        margin: 0 0 20px 0;
+    }
+
+    .foot-wrap .info-bar, .foot-wrap .form-bar {
+        width: 100%;
+    }
+
+    .features_slider img {
+        height: 230px;
+    }
+
+    .features_slider {
+        height: 400px;
+    }
+    .enyuka_portfolio .banner {
+
+        margin: 100px auto 0;}
+}
