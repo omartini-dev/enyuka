@@ -298,198 +298,198 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   //Properties to let 1 of 2
   const propToLet = result.data.allD9PropertyToLet.group;
 
-  propToLet.forEach(({ edges }, index) => {
+  // propToLet.forEach(({ edges }, index) => {
 
-    const previous = index === propToLet.length - 1 ? null : propToLet[index + 1].edges[0].node
-    const next = index === 0 ? null : propToLet[index - 1].edges[0].node
+  //   const previous = index === propToLet.length - 1 ? null : propToLet[index + 1].edges[0].node
+  //   const next = index === 0 ? null : propToLet[index - 1].edges[0].node
 
-    const prop_web_ref = edges[0].node.web_ref.substring(0, 16);
+  //   const prop_web_ref = edges[0].node.web_ref.substring(0, 16);
 
-    //Create page
-    actions.createPage({
-      path: makePropertyPagePath(edges[0].node, "ToLet", "property"),
-      component: path.resolve(`./src/templates/propertyToLet.js`),
-      context: {
-        id: edges[0].node.property_gmaven_key,
-        gmaven_mapped_key: edges[0].node.gmaven_mapped_key,
-        property_name: edges[0].node.property_name,
-        property_category: edges[0].node.property_category,
-        suburb: edges[0].node.suburb,
-        best_image: edges[0].node.best_image,
-        previous,
-        next
-      }
-    })
+  //   //Create page
+  //   actions.createPage({
+  //     path: makePropertyPagePath(edges[0].node, "ToLet", "property"),
+  //     component: path.resolve(`./src/templates/propertyToLet.js`),
+  //     context: {
+  //       id: edges[0].node.property_gmaven_key,
+  //       gmaven_mapped_key: edges[0].node.gmaven_mapped_key,
+  //       property_name: edges[0].node.property_name,
+  //       property_category: edges[0].node.property_category,
+  //       suburb: edges[0].node.suburb,
+  //       best_image: edges[0].node.best_image,
+  //       previous,
+  //       next
+  //     }
+  //   })
 
-    //Brochure redirect
-    actions.createRedirect({
-      fromPath: `/results/property/web-ref/ q=${prop_web_ref} dt=lease id=${edges[0].node.property_gmaven_key}`,
-      toPath: makePropertyPagePath(edges[0].node, "ToLet", "property"),
-      isPermanent: true,
-      redirectInBrowser: true
-    });
+  //   //Brochure redirect
+  //   actions.createRedirect({
+  //     fromPath: `/results/property/web-ref/ q=${prop_web_ref} dt=lease id=${edges[0].node.property_gmaven_key}`,
+  //     toPath: makePropertyPagePath(edges[0].node, "ToLet", "property"),
+  //     isPermanent: true,
+  //     redirectInBrowser: true
+  //   });
 
-  })
+  // })
 
 
-  //Units to let 1 of 2
-  const unitToLet = result.data.allD9PropertyToLet.edges;
+  // //Units to let 1 of 2
+  // const unitToLet = result.data.allD9PropertyToLet.edges;
 
-  unitToLet.forEach(({ node }, index) => {
+  // unitToLet.forEach(({ node }, index) => {
  
-    const previous = index === unitToLet.length - 1 ? null : unitToLet[index + 1].node
-    const next = index === 0 ? null : unitToLet[index - 1].node
+  //   const previous = index === unitToLet.length - 1 ? null : unitToLet[index + 1].node
+  //   const next = index === 0 ? null : unitToLet[index - 1].node
 
-    actions.createPage({
-      path: makePropertyPagePath(node, "ToLet", "property_unit"),
-      component: path.resolve(`./src/templates/propertyUnitToLet.js`),
-      context: {
-        id: node.gmaven_mapped_key,
-        gmaven_mapped_key: node.gmaven_mapped_key,
-        property_name: node.property_name,
-        property_category: node.property_category,
-        unit_category: node.unit_category,
-        suburb: node.suburb,
-        best_image: node.best_image,
-        previous,
-        next
-      }
-    })
+  //   actions.createPage({
+  //     path: makePropertyPagePath(node, "ToLet", "property_unit"),
+  //     component: path.resolve(`./src/templates/propertyUnitToLet.js`),
+  //     context: {
+  //       id: node.gmaven_mapped_key,
+  //       gmaven_mapped_key: node.gmaven_mapped_key,
+  //       property_name: node.property_name,
+  //       property_category: node.property_category,
+  //       unit_category: node.unit_category,
+  //       suburb: node.suburb,
+  //       best_image: node.best_image,
+  //       previous,
+  //       next
+  //     }
+  //   })
 
-    //Brochure redirect
-    actions.createRedirect({
-      fromPath: `/results/unit/web-ref/ q=${node.web_ref} dt=lease id=${node.gmaven_mapped_key}`,
-      toPath: makePropertyPagePath(node, "ToLet", "property_unit"),
-      isPermanent: true,
-      redirectInBrowser: true
-    });
+  //   //Brochure redirect
+  //   actions.createRedirect({
+  //     fromPath: `/results/unit/web-ref/ q=${node.web_ref} dt=lease id=${node.gmaven_mapped_key}`,
+  //     toPath: makePropertyPagePath(node, "ToLet", "property_unit"),
+  //     isPermanent: true,
+  //     redirectInBrowser: true
+  //   });
 
-  })
+  // })
 
 
-  //Properties for sale 1 of 2
-  const propForSale = result.data.allD9PropertyForSale.edges;
+  // //Properties for sale 1 of 2
+  // const propForSale = result.data.allD9PropertyForSale.edges;
 
-  propForSale.forEach(({ node }, index) => {
+  // propForSale.forEach(({ node }, index) => {
 
-    const previous = index === propForSale.length - 1 ? null : propForSale[index + 1].node
-    const next = index === 0 ? null : propForSale[index - 1].node
+  //   const previous = index === propForSale.length - 1 ? null : propForSale[index + 1].node
+  //   const next = index === 0 ? null : propForSale[index - 1].node
 
-    actions.createPage({
-      path: makePropertyPagePath(node, "ForSale", node.property_type),
-      component: path.resolve(`./src/templates/propertyForSale.js`),
-      context: {
-        id: node.gmaven_mapped_key,
-        gmaven_mapped_key: node.gmaven_mapped_key,
-        property_name: node.property_name,
-        property_category: node.property_category,
-        suburb: node.suburb,
-        best_image: node.best_image,
-        previous,
-        next
-      }
-    })
+  //   actions.createPage({
+  //     path: makePropertyPagePath(node, "ForSale", node.property_type),
+  //     component: path.resolve(`./src/templates/propertyForSale.js`),
+  //     context: {
+  //       id: node.gmaven_mapped_key,
+  //       gmaven_mapped_key: node.gmaven_mapped_key,
+  //       property_name: node.property_name,
+  //       property_category: node.property_category,
+  //       suburb: node.suburb,
+  //       best_image: node.best_image,
+  //       previous,
+  //       next
+  //     }
+  //   })
 
-    //Brochure redirect
-    actions.createRedirect({
-      fromPath: `/results/${node.property_type.replace("property_unit", "unit")}/web-ref/ q=${node.web_ref} dt=sale id=${node.gmaven_mapped_key}`,
-      toPath: makePropertyPagePath(node, "ForSale", node.property_type),
-      isPermanent: true,
-      redirectInBrowser: true
-    });
+  //   //Brochure redirect
+  //   actions.createRedirect({
+  //     fromPath: `/results/${node.property_type.replace("property_unit", "unit")}/web-ref/ q=${node.web_ref} dt=sale id=${node.gmaven_mapped_key}`,
+  //     toPath: makePropertyPagePath(node, "ForSale", node.property_type),
+  //     isPermanent: true,
+  //     redirectInBrowser: true
+  //   });
 
-  })
+  // })
 
 
   //Search redirects
 
-  var dataArray = ([...unitToLet, ...propForSale])
+  // var dataArray = ([...unitToLet, ...propForSale])
 
-  var suburbArray = [...new Set(dataArray.map(({ node }) => node.suburb))]
-  var categoryArray = [...new Set(dataArray.map(({ node }) => node.property_category))]
+  // var suburbArray = [...new Set(dataArray.map(({ node }) => node.suburb))]
+  // var categoryArray = [...new Set(dataArray.map(({ node }) => node.property_category))]
 
-  var suburbRoutes = []
-  var categoryRoutes = []
+  // var suburbRoutes = []
+  // var categoryRoutes = []
 
-  const catArr = new Promise((resolve, reject) => {
-    categoryArray.forEach((category) => {
-      categoryRoutes.push({
-        type: "property",
-        deal: "ToLet",
-        category: category,
-      })
-      categoryRoutes.push({
-        type: "property",
-        deal: "ForSale",
-        category: category,
-      })
-      categoryRoutes.push({
-        type: "property_unit",
-        deal: "ToLet",
-        category: category,
-      })
-      categoryRoutes.push({
-        type: "property_unit",
-        deal: "ForSale",
-        category: category,
-      })
-      resolve();
-    })
-  })
+  // const catArr = new Promise((resolve, reject) => {
+  //   categoryArray.forEach((category) => {
+  //     categoryRoutes.push({
+  //       type: "property",
+  //       deal: "ToLet",
+  //       category: category,
+  //     })
+  //     categoryRoutes.push({
+  //       type: "property",
+  //       deal: "ForSale",
+  //       category: category,
+  //     })
+  //     categoryRoutes.push({
+  //       type: "property_unit",
+  //       deal: "ToLet",
+  //       category: category,
+  //     })
+  //     categoryRoutes.push({
+  //       type: "property_unit",
+  //       deal: "ForSale",
+  //       category: category,
+  //     })
+  //     resolve();
+  //   })
+  // })
 
-  const subArr = new Promise((resolve, reject) => {
-    suburbArray.forEach((suburb) => {
-      categoryArray.forEach((category) => {
-        suburbRoutes.push({
-          type: "property",
-          deal: "ToLet",
-          category: category,
-          suburb: suburb
-        })
-        suburbRoutes.push({
-          type: "property",
-          deal: "ForSale",
-          category: category,
-          suburb: suburb
-        })
-        suburbRoutes.push({
-          type: "property_unit",
-          deal: "ToLet",
-          category: category,
-          suburb: suburb
-        })
-        suburbRoutes.push({
-          type: "property_unit",
-          deal: "ForSale",
-          category: category,
-          suburb: suburb
-        })
-      })
-      resolve();
-    })
-  })
+  // const subArr = new Promise((resolve, reject) => {
+  //   suburbArray.forEach((suburb) => {
+  //     categoryArray.forEach((category) => {
+  //       suburbRoutes.push({
+  //         type: "property",
+  //         deal: "ToLet",
+  //         category: category,
+  //         suburb: suburb
+  //       })
+  //       suburbRoutes.push({
+  //         type: "property",
+  //         deal: "ForSale",
+  //         category: category,
+  //         suburb: suburb
+  //       })
+  //       suburbRoutes.push({
+  //         type: "property_unit",
+  //         deal: "ToLet",
+  //         category: category,
+  //         suburb: suburb
+  //       })
+  //       suburbRoutes.push({
+  //         type: "property_unit",
+  //         deal: "ForSale",
+  //         category: category,
+  //         suburb: suburb
+  //       })
+  //     })
+  //     resolve();
+  //   })
+  // })
 
-  catArr.then(() => {
-    categoryRoutes.forEach((category) => {
-      actions.createRedirect({
-        fromPath: makePropertyRedirectPath(category, "category"),
-        toPath: `/listings/search?page=1&sortBy=${category.deal}&query=&refinementList%5Bproperty_category%5D%5B0%5D=${makeSlug(category.category)}`,
-        isPermanent: true,
-        redirectInBrowser: true
-      });
-    })
-  })
+  // catArr.then(() => {
+  //   categoryRoutes.forEach((category) => {
+  //     actions.createRedirect({
+  //       fromPath: makePropertyRedirectPath(category, "category"),
+  //       toPath: `/listings/search?page=1&sortBy=${category.deal}&query=&refinementList%5Bproperty_category%5D%5B0%5D=${makeSlug(category.category)}`,
+  //       isPermanent: true,
+  //       redirectInBrowser: true
+  //     });
+  //   })
+  // })
 
-  subArr.then(() => {
-    suburbRoutes.forEach((suburb) => {
-      actions.createRedirect({
-        fromPath: makePropertyRedirectPath(suburb, "suburb"),
-        toPath: `/listings/search?page=1&sortBy=${suburb.deal}&query=&refinementList%5Bsuburb_cluster%5D%5B0%5D=${makeSlug(suburb.suburb)}&refinementList%5Bproperty_category%5D%5B0%5D=${makeSlug(suburb.category)}`,
-        isPermanent: true,
-        redirectInBrowser: true
-      });
-    })
-  })
+  // subArr.then(() => {
+  //   suburbRoutes.forEach((suburb) => {
+  //     actions.createRedirect({
+  //       fromPath: makePropertyRedirectPath(suburb, "suburb"),
+  //       toPath: `/listings/search?page=1&sortBy=${suburb.deal}&query=&refinementList%5Bsuburb_cluster%5D%5B0%5D=${makeSlug(suburb.suburb)}&refinementList%5Bproperty_category%5D%5B0%5D=${makeSlug(suburb.category)}`,
+  //       isPermanent: true,
+  //       redirectInBrowser: true
+  //     });
+  //   })
+  // })
 
 }
 
