@@ -15,7 +15,7 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-    `gatsby-plugin-sitemap`,
+    // `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
