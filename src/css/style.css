@@ -23,13 +23,20 @@ nav .logo-content {
     height: 160px;
 
 }
-
+header.minimized nav .logo-content {
+    width: 100px;
+    height: auto;
+}
+header.minimized ul{
+    margin-bottom: 0;
+}
 nav .logo-content img {
     max-width: 100%;
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: contain;
     display: block;
+    max-height: 100%;
 }
 
 nav .menu-items {
@@ -40,11 +47,13 @@ nav ul {
     display: flex;
     /*box-shadow: 0 0 3px #000;*/
 }
-
+@media (max-width: 769px){
+    nav ul {
+        display: block;
+    }
+}
 nav .m_item {
     /*box-shadow: 0 0 3px #000;*/
-    width: 160px;
-    height: 55px;
     border: 1px solid #285878;
     border-radius: 30px;
     margin: 0 30px 0 0;
@@ -65,17 +74,15 @@ nav .m_item:hover a {
 }
 
 nav .m_item a {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 30px;
     text-transform: capitalize;
     font-size: 18px;
     color: #285878;
-    padding: 15px 30px;
-
+    padding: 13px 30px;
+    display: inline-block;
+    min-width: 160px;
+    text-align: center;
+    max-width: 100%;
 }
 
 nav > ul {
@@ -92,12 +99,12 @@ nav > ul {
     z-index: 999;
     /*border: 1px solid red;*/
     max-width: 100%;
-    height: 300px;
+    height: 350px;
 }
 
 header.minimized {
     border-radius: 0 0 30px 30px;
-    background-image: linear-gradient(to right, #035974, #00B0C5);    padding: 30px;
+    background-image: linear-gradient(to right, #035974, #00B0C5);    padding: 20px;
 
 }
 
@@ -401,7 +408,10 @@ footer .foot-wrap {
     margin: 150px auto 70px;
 
 }
-
+.why_us > .banner {
+    margin: 0 0 0 -220px;
+    display: flex;
+}
 .why_us {
     background-image: linear-gradient(to right, #57C8E0, #CDEBEE);
     border-radius: 30px;
@@ -412,11 +422,6 @@ footer .foot-wrap {
     align-items: center;
     padding: 50px 0;
 
-}
-
-.why_us > .banner {
-    margin: 0 0 0 -220px;
-    display: flex;
 }
 
 .why_us > .banner img {
@@ -436,6 +441,43 @@ footer .foot-wrap {
     flex-direction: column;
     justify-content: center;
 }
+@media (max-width: 1400px) {
+    .why_us_container {
+        max-width: 1000px;
+    }
+    .why_us > .banner {
+        margin: 0 0 0 -120px;
+    }
+}
+@media (max-width: 1250px) {
+    .why_us_container {
+        padding:0 20px;
+    }
+    .why_us > .banner {
+        margin: 0;
+    }
+}
+@media (max-width: 991.98px) {
+    .why_us{
+        display: block;
+        height: auto;
+    }
+    .why_us > .banner {
+        margin: 0;
+        display: block;
+        width: 100%;
+    }
+    .why_us > .banner img{
+        margin:0 auto;
+        max-width: 100%;
+    }
+    .why_us > .banner >div{
+        margin:0;
+    }
+}
+
+
+
 
 .why_us > .banner h3 {
 font-size: 70px;
@@ -463,15 +505,6 @@ max-width: 640px;
 }
 @media (max-width: 1200px) {
 
-
-    .menu-icon {
-        margin-top: -5px;
-    }
-
-    .menu-icon.open {
-        margin-top: -200px;
-    }
-
     .menu-icon > span {
         width: 30px;
         height: 5px;
@@ -487,10 +520,6 @@ max-width: 640px;
     }
     .menu-icon > span:before, .menu-icon > span:after {
         height: 5px;}
-
-    .menu-icon.open {
-        margin-top: -200px;
-    }
 
     .menu-icon > span {
         width: 30px;
@@ -517,6 +546,8 @@ max-width: 640px;
     nav .m_item a {
         font-size: 16px;
         padding: 15px 10px;
+        min-width: unset;
+        width: 100%;
     }
 
     nav .logo-content {
@@ -546,18 +577,6 @@ max-width: 640px;
         height: 120px;
     }
 
-    .container {
-        -webkit-transition: all 0.3s ease;
-        -webkit-transition-delay: 0.6s;
-        -moz-transition: all 0.3s ease 0.6s;
-        -o-transition: all 0.3s ease 0.6s;
-        transition: all 0.3s ease 0.6s;
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin: 50px 30px 0 0;
-    }
-
     .container.nav-open {
         width: 100%;
         -webkit-transition: all 0.3s ease;
@@ -568,20 +587,18 @@ max-width: 640px;
     }
 
     .menu-icon {
-        position: relative;
+        position: absolute;
         display: block;
         width: 60px;
         height: auto;
         cursor: pointer;
         z-index: 999999;
         /*box-shadow: 0 0 3px red;*/
-        margin: -5px 0 0 auto;
-
+        margin: 0;
+        top:20px;
+        right:10px;
     }
 
-    .menu-icon.open {
-        margin-top: -230px;
-    }
 
     .menu-icon:hover span {
         background: #1C4A69;
@@ -765,10 +782,10 @@ max-width: 640px;
         margin: 100px 0 0 0;
     }
     nav .m_item {
-        width: 100px;
+        width: 100%;
         height: auto;
-        margin: 0 20px 0 0;
-
+        margin: 0;
+        border:none;
     }
 
     nav .m_item a {
@@ -819,11 +836,6 @@ max-width: 640px;
 }
 
 @media (max-width: 480px) {
-    nav .m_item {
-        width: 80px;
-        margin-right: 10px
-    }
-
     nav .m_item a {
         font-size: 12px;
     }

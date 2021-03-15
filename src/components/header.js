@@ -84,8 +84,6 @@ class Header extends React.Component {
                 </li>
                 <li className="m_item">
                   <Link to="/">Contact</Link>
-
-                  <a href="#"></a>
                 </li>
               </ul>
             </li>
