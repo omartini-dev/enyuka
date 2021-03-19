@@ -103,6 +103,10 @@ const CardContainer = styled.div`
 	}
 	.property-desc{
 		padding: 35px 35px 30px 60px;
+		@media (max-width: 1200px) {
+			padding: 30px;
+		}
+		
     font-size: 16px;
 		h5{
 			margin: 0 0 25px 0;
