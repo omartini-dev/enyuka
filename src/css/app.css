@@ -67,6 +67,7 @@ h2:before {
         width: 100%;
         padding: 0 30px;
         font-size: 24px;
+        white-space: nowrap;
     }
 
     h2:after, h2:before {

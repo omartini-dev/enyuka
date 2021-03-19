@@ -595,7 +595,7 @@ max-width: 640px;
         z-index: 999999;
         /*box-shadow: 0 0 3px red;*/
         margin: 0;
-        top:20px;
+        top:30px;
         right:10px;
     }
 
@@ -699,7 +699,9 @@ max-width: 640px;
         position: relative;
         top: -8em;
     }
-
+    header.minimized nav .m_item{
+        margin-bottom: 10px;
+    }
     nav ul li:nth-child(1) {
         -webkit-transition: top 0.3s ease;
         -webkit-transition-delay: 0.15s;
@@ -839,7 +841,9 @@ max-width: 640px;
     nav .m_item a {
         font-size: 12px;
     }
-
+    .menu-items{
+        margin:0;
+    }
     .menu-icon > span {
         width: 20px;
     }

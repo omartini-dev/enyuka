@@ -452,4 +452,7 @@
   .enyuka_portfolio .banner {
     margin: 100px auto 0;
   }
+  .menu-icon.open > span {
+    height: 2px;
+  }
 }
