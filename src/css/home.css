@@ -402,10 +402,11 @@
     height: 300px;
   }
 
-  .why_us > .banner h3 {
+  .why_us > .banner h3,
+  .enyuka_portfolio .banner h4 {
     font-size: 40px;
   }
-
+  
   .why_us > .banner p {
     font-size: 14px;
     line-height: 30px;

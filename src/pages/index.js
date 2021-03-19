@@ -3,8 +3,8 @@ import { graphql } from "gatsby";
 // import { Link } from "gatsby"
 import "../css/app.css"
 import "../css/font.css"
-import "../css/home.css"
 import "../css/style.css"
+import "../css/home.css"
 
 import Layout from "../components/layout"
 import Why from "../components/why_us"
