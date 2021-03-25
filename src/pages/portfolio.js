@@ -5,7 +5,8 @@ import "../css/app.css"
 import "../css/font.css"
 import "../css/style.css"
 import "../css/home.css"
-
+import { Container, Row, Col } from 'react-bootstrap';
+import FeaturedCard from "../components/Cards/FeaturedCard"
 import Layout from "../components/layout"
 
 const Portfolio = ({data}) => {
@@ -17,7 +18,17 @@ const Portfolio = ({data}) => {
 					<i className="fa fa-angle-right" aria-hidden="true"></i>
 					<a href="#" className="active">portfolio</a>
 				</div>
-
+				<Container className="featured-card-container top-features">
+					<Row>
+					{
+						data?.featuredToLet?.nodes && data.featuredToLet?.nodes.slice(0,3).map((_card, index)=>(
+							<Col lg="4" key={index} className="px-5 mb-5">
+							<FeaturedCard data={_card} />
+							</Col>
+						))
+					}
+					</Row>
+				</Container>
 				<h2>GET IN TOUCH</h2>
 			</section>
 		</Layout>
