@@ -5,6 +5,8 @@ import "../css/app.css"
 import "../css/font.css"
 import "../css/style.css"
 import "../css/home.css"
+import bannerImg from "../images/about-us-page-circle.png"
+import mapImg from "../images/map.png"
 
 import Layout from "../components/layout"
 
@@ -27,7 +29,7 @@ const AboutUs = () => {
 							</div>
 							<div className="r_bar about-image">
 								<img
-									src="../../images/about-us-page-circle.png"
+									src={bannerImg}
 									alt=""
 									title=""
 								/>
@@ -37,7 +39,7 @@ const AboutUs = () => {
 				</div>
 				<div className="map-banner">
 					<div className="map-content">
-						<img src="../../images/map.png" alt="" />
+						<img src={mapImg} alt="" />
 					</div>
 					<div className="txt-bar">
 						<p>
