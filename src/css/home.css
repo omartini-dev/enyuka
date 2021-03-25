@@ -557,3 +557,23 @@ text-align: justify;
       margin: 30px auto;
   }
 }
+.page-location {
+  max-width: 1420px;
+  margin: 0 auto 50px
+}
+.page-location a {
+  text-transform: capitalize;
+  color: #999;
+}
+
+.page-location a.active {
+  color: #285878;
+}
+
+.page-location i {
+  margin: 0 10px;
+  color: #999;
+}
+.portfolio-section{
+  padding-top:270px;
+}
