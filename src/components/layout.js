@@ -11,10 +11,10 @@ import Header from "./header"
 import Footer from "./footer"
 // import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, slug }) => {
   return (
     <div>
-      <Header />
+      <Header slug={slug}/>
       <main>{children}</main>
       <Footer />
     </div>

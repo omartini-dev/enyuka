@@ -73,16 +73,16 @@ class Header extends React.Component {
             </li>
             <li className="menu-items">
               <ul>
-                <li className="m_item active">
+                <li className={`m_item ${this.props.slug=='home'?'active':''}`}>
                   <Link to="/">Home</Link>
                 </li>
-                <li className="m_item">
-                  <Link to="/">About us</Link>
+                <li className={`m_item ${this.props.slug=='about-us'?'active':''}`}>
+                  <Link to="/about-us">About us</Link>
                 </li>
-                <li className="m_item">
-                  <Link to="/">Portfolio</Link>
+                <li className={`m_item ${this.props.slug=='portfolio'?'active':''}`}>
+                  <Link to="/portfolio">Portfolio</Link>
                 </li>
-                <li className="m_item">
+                <li className={`m_item ${this.props.slug=='contact'?'active':''}`}>
                   <Link to="/">Contact</Link>
                 </li>
               </ul>

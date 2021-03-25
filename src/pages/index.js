@@ -12,7 +12,7 @@ import FeaturedCard from "../components/Cards/FeaturedCard"
 import { Container, Row, Col } from 'react-bootstrap';
 const IndexPage = ({data}) => {
 	return (
-		<Layout>
+		<Layout slug="home">
 			<section>
 				<div className="wrapper">
 					<div className="enyuka_portfolio">

@@ -45,6 +45,9 @@
   object-fit: cover;
   max-width: 100%;
 }
+.enyuka_portfolio .banner .r_bar.about-image{
+  max-width: 680px;
+}
 .enyuka_portfolio .banner h4 {
   /*box-shadow: 0 0 3px #000;*/
   font-size: 50px;
@@ -454,5 +457,103 @@
   }
   .menu-icon.open > span {
     height: 2px;
+  }
+}
+.map-banner {
+  max-width: 1380px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 170px;
+  align-items: flex-end;
+}
+
+.map-banner > .map-content {
+  width: 660px;
+  height: 630px;
+  border-radius:100px ;
+}.map-banner > .map-content img{
+  border-radius: 100px;
+}
+
+.map-banner > .txt-bar {
+  font-size: 25px;
+  line-height: 35px;
+  letter-spacing: 2px;
+  max-width: 700px;
+  margin: 0 0 90px 60px;
+}
+@media (max-width: 1600px) {
+  .map-banner {
+      max-width: 100%;
+      padding: 0 30px
+  }
+
+  .map-banner > .txt-bar {
+      margin: 0 0 80px 50px;
+  }
+
+  .map-banner {
+      margin: 0 auto 150px;
+  }
+}
+@media (max-width: 1400px) {
+  .enyuka_portfolio .banner .r_bar {
+      max-width: 550px;
+  }
+  .map-banner > .txt-bar {
+      font-size: 21px;}
+}
+@media (max-width: 1200px) {
+  .map-banner{
+      flex-direction: column;
+  }
+
+  .map-banner > .map-content img{width: 100%;height: 100%;object-fit: cover}
+  .map-banner > .map-content{
+      margin: 0 auto 30px;
+      max-width: 100%;
+      width: 100%;
+  }
+  .map-banner > .txt-bar{
+      margin: auto;
+      max-width: 100%;
+text-align: justify;
+  }
+  .map-banner {
+      margin:100px auto;
+  }
+  .enyuka_portfolio .banner h4{
+      font-size: 40px;
+  }
+}
+@media (max-width: 992px) {
+  .enyuka_portfolio .banner .r_bar {
+      max-width: 400px;
+  }
+  .enyuka_portfolio .banner h4 {
+      font-size: 30px;
+  }
+  .map-banner {
+      margin: 70px auto;
+  }
+}
+@media (max-width: 769px) {
+  .map-banner > .map-content{
+      height: auto;
+  }
+  .map-banner {
+      margin: 50px auto;
+  }
+  .enyuka_portfolio .banner .r_bar{
+      width: 100%;
+      margin: auto;
+      display: flex;
+
+  }
+}
+@media (max-width: 480px) {
+
+  .map-banner {
+      margin: 30px auto;
   }
 }
