@@ -21,7 +21,7 @@ const Portfolio = ({data}) => {
 				<Container className="featured-card-container top-features">
 					<Row>
 					{
-						data?.featuredToLet?.nodes && data.featuredToLet?.nodes.slice(0,3).map((_card, index)=>(
+						data?.featuredToLet?.nodes && data.featuredToLet?.nodes.map((_card, index)=>(
 							<Col lg="4" key={index} className="px-5 mb-5">
 							<FeaturedCard data={_card} />
 							</Col>
