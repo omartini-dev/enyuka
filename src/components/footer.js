@@ -1,12 +1,11 @@
 import React from "react"
-// import "../css/style.css"
-
+import enyukaWhiteLogo from "../images/enyuka-white-logo.png"
 const Header = () => (
   <footer>
     <div className="foot-wrap">
       <div className="logo-bar">
         <img
-          src="images/enyuka-white-logo.png"
+          src={enyukaWhiteLogo}
           alt="Enyuka Logo"
           title="Logo"
         />

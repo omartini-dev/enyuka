@@ -2,7 +2,8 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import { render } from "react-dom"
-// import "../css/style.css"
+import enyukaLogo from "../images/enyuka-logo.png"
+import enyukaWhiteLogo from "../images/enyuka-white-logo.png"
 
 class Header extends React.Component {
   constructor(props) {
@@ -58,13 +59,13 @@ class Header extends React.Component {
             <li className="logo-content">
               <Link to="/">
                 <img
-                  src={"../../images/enyuka-logo.png"}
+                  src={enyukaLogo}
                   alt="Enyuka Logo"
                   title="Logo"
                   className="plain-logo open"
                 />
                 <img
-                  src="../../images/enyuka-white-logo.png"
+                  src={enyukaWhiteLogo}
                   alt="Enyuka Logo"
                   title="Logo"
                   className="white-logo"
@@ -83,7 +84,7 @@ class Header extends React.Component {
                   <Link to="/portfolio">Portfolio</Link>
                 </li>
                 <li className={`m_item ${this.props.slug=='contact'?'active':''}`}>
-                  <Link to="/">Contact</Link>
+                  <Link to="/contact">Contact</Link>
                 </li>
               </ul>
             </li>

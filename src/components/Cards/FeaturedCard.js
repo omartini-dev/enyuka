@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import styled from "styled-components"
-
+import {Link} from "gatsby"
+const { makePropertyPagePath } = require("../utils/urlGenerator");
 const FeaturedCard = ({data}) => {
 	const [activeImg, setActiveImg] = useState(0)
 	return (
@@ -8,16 +9,17 @@ const FeaturedCard = ({data}) => {
 		<div className="featured-image">
 			{
 				data?.property_images && data?.property_images.slice(0,5).map((_img, index)=>(
-					<>
-					<img src={_img?.image_path_url} key={index} className={activeImg===index?'active':''} />
+					<div key={index}>
+					<img src={_img?.image_path_url} className={activeImg===index?'active':''} />
 					<span 
 						className={`img-anchor anchor-${(index - (data?.property_images.slice(0,5).length-1)/2)*2} ${activeImg===index?'active':''}`}
 						onClick={()=>setActiveImg(index)}></span>
-					</>
+					</div>
 				))
 			}
 		</div>
 		<div className="property-desc">
+			<Link to={makePropertyPagePath(data, "ToLet", "property")}>
 			<h5>{data?.property_name}</h5>
 			<div className="property-address">
 				<span>{data?.street_address}, </span>
@@ -29,6 +31,7 @@ const FeaturedCard = ({data}) => {
 				<span>Anchor tenant: </span>
 				<span></span>
 			</div>
+			</Link>
 		</div>
 	</CardContainer>
 	)

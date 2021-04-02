@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby";
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import "../css/app.css"
 import "../css/font.css"
 import "../css/style.css"
@@ -8,15 +8,18 @@ import "../css/home.css"
 import { Container, Row, Col } from 'react-bootstrap';
 import FeaturedCard from "../components/Cards/FeaturedCard"
 import Layout from "../components/layout"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 const Portfolio = ({data}) => {
 	return (
 		<Layout slug="portfolio">
 			<section className="portfolio-section">
 				<div className="page-location">
-					<a href="#">home</a>
-					<i className="fa fa-angle-right" aria-hidden="true"></i>
-					<a href="#" className="active">portfolio</a>
+					<Link to="/">home</Link>
+					<span className="px-2"><FontAwesomeIcon icon={fas.faAngleRight} /></span>
+					
+					<span className="active">portfolio</span>
 				</div>
 				<Container className="featured-card-container top-features">
 					<Row>

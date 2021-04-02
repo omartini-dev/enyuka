@@ -236,102 +236,102 @@ exports.sourceNodes = async (gatsbyApi, pluginOptions) => {
   await gatsbyApi.cache.set(`LAST_BUILD_TIME`, Date.now())
 }
 
-// exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
 
-//   //Get the data from Gatsby data store
-//   const result = await graphql(`
-//     query {
-//       allD9PropertyToLet {
-//         group(field: property_gmaven_key, limit: 1) {
-//           edges {
-//             node {
-//               id
-//               property_gmaven_key
-//               gmaven_mapped_key
-//               property_name
-//               suburb
-//               property_category
-//               best_image
-//               web_ref
-//             }
-//           }
-//         }
-//         edges {
-//           node {
-//             id
-//             property_gmaven_key
-//             gmaven_mapped_key
-//             property_name
-//             suburb
-//             property_category
-//             unit_category
-//             unit_id
-//             best_image
-//             web_ref
-//           }
-//         }
-//       }
+  //Get the data from Gatsby data store
+  const result = await graphql(`
+    query {
+      allD9PropertyToLet {
+        group(field: property_gmaven_key, limit: 1) {
+          edges {
+            node {
+              id
+              property_gmaven_key
+              gmaven_mapped_key
+              property_name
+              suburb
+              property_category
+              best_image
+              web_ref
+            }
+          }
+        }
+        edges {
+          node {
+            id
+            property_gmaven_key
+            gmaven_mapped_key
+            property_name
+            suburb
+            property_category
+            unit_category
+            unit_id
+            best_image
+            web_ref
+          }
+        }
+      }
 
-//       allD9PropertyForSale {
-//         edges {
-//           node {
-//             id
-//             gmaven_mapped_key
-//             property_name
-//             suburb
-//             property_category
-//             property_type
-//             best_image
-//             web_ref
-//             unit_id
-//           }
-//         }
-//       }
-//     }
-//   `)
+      allD9PropertyForSale {
+        edges {
+          node {
+            id
+            gmaven_mapped_key
+            property_name
+            suburb
+            property_category
+            property_type
+            best_image
+            web_ref
+            unit_id
+          }
+        }
+      }
+    }
+  `)
 
-//   if (result.errors) {
-//     reporter.panicOnBuild('🚨  ERROR: Loading "cre-plugin createPages" query')
-//   }
-
-
-//   //Properties to let 1 of 2
-//   const propToLet = result.data.allD9PropertyToLet.group;
-
-//   propToLet.forEach(({ edges }, index) => {
-
-//     const previous = index === propToLet.length - 1 ? null : propToLet[index + 1].edges[0].node
-//     const next = index === 0 ? null : propToLet[index - 1].edges[0].node
-
-//     const prop_web_ref = edges[0].node.web_ref.substring(0, 16);
-
-//     //Create page
-//     actions.createPage({
-//       path: makePropertyPagePath(edges[0].node, "ToLet", "property"),
-//       component: path.resolve(`./src/templates/propertyToLet.js`),
-//       context: {
-//         id: edges[0].node.property_gmaven_key,
-//         gmaven_mapped_key: edges[0].node.gmaven_mapped_key,
-//         property_name: edges[0].node.property_name,
-//         property_category: edges[0].node.property_category,
-//         suburb: edges[0].node.suburb,
-//         best_image: edges[0].node.best_image,
-//         previous,
-//         next
-//       }
-//     })
-
-//     //Brochure redirect
-//     actions.createRedirect({
-//       fromPath: `/results/property/web-ref/ q=${prop_web_ref} dt=lease id=${edges[0].node.property_gmaven_key}`,
-//       toPath: makePropertyPagePath(edges[0].node, "ToLet", "property"),
-//       isPermanent: true,
-//       redirectInBrowser: true
-//     });
-
-//   })
+  if (result.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "cre-plugin createPages" query')
+  }
 
 
+  //Properties to let 1 of 2
+  const propToLet = result.data.allD9PropertyToLet.group;
+
+  propToLet.forEach(({ edges }, index) => {
+
+    const previous = index === propToLet.length - 1 ? null : propToLet[index + 1].edges[0].node
+    const next = index === 0 ? null : propToLet[index - 1].edges[0].node
+
+    const prop_web_ref = edges[0].node.web_ref.substring(0, 16);
+
+    //Create page
+    actions.createPage({
+      path: makePropertyPagePath(edges[0].node, "ToLet", "property"),
+      component: path.resolve(`./src/templates/propertyToLet.js`),
+      context: {
+        id: edges[0].node.property_gmaven_key,
+        gmaven_mapped_key: edges[0].node.gmaven_mapped_key,
+        property_name: edges[0].node.property_name,
+        property_category: edges[0].node.property_category,
+        suburb: edges[0].node.suburb,
+        best_image: edges[0].node.best_image,
+        previous,
+        next
+      }
+    })
+
+    //Brochure redirect
+    actions.createRedirect({
+      fromPath: `/results/property/web-ref/ q=${prop_web_ref} dt=lease id=${edges[0].node.property_gmaven_key}`,
+      toPath: makePropertyPagePath(edges[0].node, "ToLet", "property"),
+      isPermanent: true,
+      redirectInBrowser: true
+    });
+
+  })
+
+}
 //   //Units to let 1 of 2
 //   const unitToLet = result.data.allD9PropertyToLet.edges;
 

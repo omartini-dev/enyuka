@@ -833,7 +833,7 @@ max-width: 640px;
 
     .foot-wrap .info-bar,
     .foot-wrap .form-bar {
-        width: 30%;
+        width: 100%;
     }
 }
 
