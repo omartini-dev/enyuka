@@ -95,7 +95,7 @@ export default function PropertyToLet({ data }) {
 						</Col>
 						<Col md="6" className="pl-md-5">
 							<div className="main-image">
-								<img src={property_images[selectedImage].image_path_url} />
+								<img src={property_images[selectedImage]?.image_path_url} />
 							</div>
 							<div className="img-list-wrapper clearfix">
 								<span className="control-btn control-left" onClick={()=>moveCarousel(-1)}>
